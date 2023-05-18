@@ -40,6 +40,25 @@ export class ChatGPTApi implements LLMApi {
       },
     };
 
+    //校验权限
+    const tokenCheckUrl =
+      "https://www.7miyu.com/api/common/chat/token/info?hours=1";
+    let chatCheckHeader: Record<string, string> = {
+      "Content-Type": "application/json",
+      chatToken: "85387462748027360360016950263928",
+    };
+
+    const tokenVertfyPayload = {
+      method: "GET",
+      headers: chatCheckHeader,
+    };
+    const checkResult = await fetch(tokenCheckUrl, tokenVertfyPayload);
+    const checkResultJson = await checkResult.json();
+    console.log("[Token Check]: ", checkResultJson);
+    // if(checkResultJson.code!=200){
+    //   return options.onFinish(checkResultJson.message||'访问密码信息已失效，请重新填写访问密码');
+    // }
+
     const requestPayload = {
       messages,
       stream: options.config.stream,
