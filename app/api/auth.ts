@@ -64,9 +64,9 @@ export function auth(req: NextRequest) {
       method: "GET",
       headers: chatCheckHeader,
     };
+    console.log("[tokenCheckUrl]: ", tokenVertfyPayload);
     const checkResult = fetch(tokenCheckUrl, tokenVertfyPayload).then(
       (response) => {
-        console.log(response);
         console.log("[Token Check]: ", response);
         // var res=response.json();
         // if(res.code!=200){
