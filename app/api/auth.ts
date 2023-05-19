@@ -40,43 +40,11 @@ export function auth(req: NextRequest) {
   console.log("[User IP] ", getIP(req));
   console.log("[Time] ", new Date().toLocaleString());
 
-  // if (serverConfig.needCode && !serverConfig.codes.has(hashedCode) && !token) {
-  //   return {
-  //     error: true,
-  //     msg: !accessCode ? "empty access code" : "wrong access code",
-  //   };
-  // }
   if (serverConfig.needCode && !token) {
-    //check accessCode
-    if (!accessCode) {
-      return {
-        error: true,
-        msg: "请输入访问密码",
-      };
-    }
-    //校验权限
-    const tokenCheckUrl = "/blogservice/common/chat/token/info";
-    let chatCheckHeader: Record<string, string> = {
-      "Content-Type": "application/json",
-      chatToken: accessCode,
+    return {
+      error: true,
+      msg: !accessCode ? "empty access code" : "wrong access code",
     };
-    const tokenVertfyPayload = {
-      method: "GET",
-      headers: chatCheckHeader,
-    };
-    console.log("[tokenCheckUrl]: ", tokenVertfyPayload);
-    const checkResult = fetch(tokenCheckUrl, tokenVertfyPayload).then(
-      (response) => {
-        console.log("[Token Check]: ", response);
-        // var res=response.json();
-        // if(res.code!=200){
-        //   return {
-        //     error: true,
-        //     msg: "访问密码信息已失效，请重新填写访问密码",
-        //   };
-        // }
-      },
-    );
   }
 
   // if user does not provide an api key, inject system api key
