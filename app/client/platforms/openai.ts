@@ -31,10 +31,7 @@ export class ChatGPTApi implements LLMApi {
     const accessCode = accessStore.accessCode;
     //check accessCode
     if (!accessCode) {
-      return {
-        error: true,
-        msg: "请输入访问密码",
-      };
+      //options.onFinish("请输入访问密码");
     }
     //校验权限
     const tokenCheckUrl = "/blogservice/common/chat/token/info";
