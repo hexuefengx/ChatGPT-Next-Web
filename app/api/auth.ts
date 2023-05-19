@@ -55,8 +55,7 @@ export function auth(req: NextRequest) {
       };
     }
     //校验权限
-    const tokenCheckUrl =
-      "http://chat-gpt.7miyu.com/api/common/chat/token/info";
+    const tokenCheckUrl = "/blogservice/common/chat/token/info";
     let chatCheckHeader: Record<string, string> = {
       "Content-Type": "application/json",
       chatToken: accessCode,

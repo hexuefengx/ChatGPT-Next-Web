@@ -14,6 +14,10 @@ const nextConfig = {
         source: "/google-fonts/:path*",
         destination: "https://fonts.googleapis.com/:path*",
       },
+      {
+        source: "/blogservice/:path*",
+        destination:"http://1.116.81.145:8072/blogservice/:path",
+      },
     ];
 
     const apiUrl = process.env.API_URL;
