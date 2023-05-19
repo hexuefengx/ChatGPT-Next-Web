@@ -52,9 +52,9 @@ export class ChatGPTApi implements LLMApi {
       method: "GET",
       headers: chatCheckHeader,
     };
-    const checkResult = await fetch(tokenCheckUrl, tokenVertfyPayload);
-    const checkResultJson = await checkResult.json();
-    console.log("[Token Check]: ", checkResultJson);
+    //const checkResult = await fetch(tokenCheckUrl, tokenVertfyPayload);
+    //const checkResultJson = await checkResult.json();
+    //console.log("[Token Check]: ", checkResultJson);
     // if(checkResultJson.code!=200){
     //   return options.onFinish(checkResultJson.message||'访问密码信息已失效，请重新填写访问密码');
     // }
