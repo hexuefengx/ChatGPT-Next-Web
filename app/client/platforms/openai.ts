@@ -42,7 +42,7 @@ export class ChatGPTApi implements LLMApi {
 
     //校验权限
     const tokenCheckUrl =
-      "https://www.7miyu.com/api/common/chat/token/info?hours=1";
+      "https://chat-gpt.7miyu.com/api/common/chat/token/info";
     let chatCheckHeader: Record<string, string> = {
       "Content-Type": "application/json",
       chatToken: "85387462748027360360016950263928",
