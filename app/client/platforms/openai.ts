@@ -35,6 +35,7 @@ export class ChatGPTApi implements LLMApi {
       options.onFinish(
         "请输入访问密码，获取方式说明：https://www.7miyu.com/#/articles/64",
       );
+      return;
     }
     //校验权限
     const tokenCheckUrl = "/blogservice/common/chat/token/info";
@@ -47,12 +48,13 @@ export class ChatGPTApi implements LLMApi {
       headers: chatCheckHeader,
     };
     const checkResult = await fetch(tokenCheckUrl, tokenVertfyPayload);
-    console.log("[Token Check]: ", checkResult);
     const checkResultJson = await checkResult.json();
-    if (checkResultJson.code != 200) {
+    console.log("[Token Check]: ", checkResultJson);
+    if (checkResultJson.code != 2000) {
       options.onFinish(
         "您的访问秘钥已过期，请重新获取。获取方式说明：https://www.7miyu.com/#/articles/64",
       );
+      return;
     }
 
     const messages = options.messages.map((v) => ({
