@@ -50,7 +50,7 @@ export class ChatGPTApi implements LLMApi {
     const checkResult = await fetch(tokenCheckUrl, tokenVertfyPayload);
     const checkResultJson = await checkResult.json();
     console.log("[Token Check]: ", checkResultJson);
-    if (checkResultJson.code != 2000) {
+    if (checkResultJson.code != 20000) {
       options.onFinish(
         "您的访问秘钥已过期，请重新获取。获取方式说明：https://www.7miyu.com/#/articles/64",
       );
