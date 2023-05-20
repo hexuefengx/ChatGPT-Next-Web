@@ -40,14 +40,13 @@ export function auth(req: NextRequest) {
   console.log("[User IP] ", getIP(req));
   console.log("[Time] ", new Date().toLocaleString());
 
+  console.log("[Auth] auth校验", token);
   if (serverConfig.needCode && !token) {
     return {
       error: true,
       msg: !accessCode ? "empty access code" : "wrong access code",
     };
   }
-
-  console.log("[Auth] auth校验", token);
   // if user does not provide an api key, inject system api key
   if (!token) {
     const apiKey = serverConfig.apiKey;
