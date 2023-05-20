@@ -29,6 +29,7 @@ export class ChatGPTApi implements LLMApi {
   async chat(options: ChatOptions) {
     const accessStore = useAccessStore.getState();
     const accessCode = accessStore.accessCode;
+    console.log("[chat]发起chat", accessStore);
     //check accessCode
     if (!accessCode) {
       //options.onFinish("请输入访问密码");

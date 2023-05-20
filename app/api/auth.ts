@@ -47,6 +47,7 @@ export function auth(req: NextRequest) {
     };
   }
 
+  console.log("[Auth] auth校验", token);
   // if user does not provide an api key, inject system api key
   if (!token) {
     const apiKey = serverConfig.apiKey;
