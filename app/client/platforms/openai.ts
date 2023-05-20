@@ -32,7 +32,9 @@ export class ChatGPTApi implements LLMApi {
     console.log("[chat]发起chat", accessStore);
     //check accessCode
     if (!accessCode) {
-      //options.onFinish("请输入访问密码");
+      options.onFinish(
+        "请输入访问密码，获取方式说明：https://www.7miyu.com/#/articles/64",
+      );
     }
     //校验权限
     const tokenCheckUrl = "/blogservice/common/chat/token/info";
@@ -44,12 +46,13 @@ export class ChatGPTApi implements LLMApi {
       method: "GET",
       headers: chatCheckHeader,
     };
-    console.log("[tokenCheckUrl]: ", tokenVertfyPayload);
     const checkResult = await fetch(tokenCheckUrl, tokenVertfyPayload);
     console.log("[Token Check]: ", checkResult);
     const checkResultJson = await checkResult.json();
     if (checkResultJson.code != 200) {
-      // return options.onFinish("您的访问秘钥已过期，请重新获取");
+      options.onFinish(
+        "您的访问秘钥已过期，请重新获取。获取方式说明：https://www.7miyu.com/#/articles/64",
+      );
     }
 
     const messages = options.messages.map((v) => ({

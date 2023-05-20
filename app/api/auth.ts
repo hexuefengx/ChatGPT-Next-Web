@@ -41,6 +41,7 @@ export function auth(req: NextRequest) {
   console.log("[Time] ", new Date().toLocaleString());
 
   console.log("[Auth] auth校验", token);
+
   // if (serverConfig.needCode && !token) {
   //   return {
   //     error: true,
