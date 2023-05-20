@@ -121,8 +121,8 @@ export function SideBar(props: { className?: string }) {
       <div className={styles["sidebar-header"]}>
         <div className={styles["sidebar-title"]}>ChatGPT体验馆 </div>
         <div className={styles["sidebar-sub-title"]}>
-          无须购买梯子即可试玩 如需体验请假客服微信号：maopaohedaxia
-          <a href="https://www.7miyu.com/#/articles/64">试玩教程</a>
+          无须注册即可试玩 如需体验请加微信号：maopaohedaxia
+          <a href="https://www.7miyu.com/#/articles/64">操作手册</a>
         </div>
         <div className={styles["sidebar-logo"] + " no-dark"}>
           <ChatGptIcon />
