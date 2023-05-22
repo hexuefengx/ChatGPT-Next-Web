@@ -122,7 +122,7 @@ export function SideBar(props: { className?: string }) {
         <div className={styles["sidebar-title"]}>ChatGPT体验馆 </div>
         <div className={styles["sidebar-sub-title"]}>
           无须注册即可试玩 如需体验请看
-          <a href="https://www.7miyu.com/#/articles/67">操作指引</a>
+          <a href="https://www.7miyu.com/#/articles/67" target="_blank">操作指引</a>
         </div>
         <div className={styles["sidebar-logo"] + " no-dark"}>
           <ChatGptIcon />
