@@ -33,7 +33,7 @@ export class ChatGPTApi implements LLMApi {
     //check accessCode
     if (!accessCode) {
       options.onFinish(
-        "请输入访问密码，获取方式说明：https://www.7miyu.com/#/articles/64",
+        "请输入访问密码，获取方式说明：https://www.7miyu.com/#/articles/67",
       );
       return;
     }
@@ -52,7 +52,7 @@ export class ChatGPTApi implements LLMApi {
     // console.log("[Token Check]: ", checkResultJson);
     if (checkResultJson.code != 20000) {
       options.onFinish(
-        "您的访问秘钥已过期，请重新获取。获取方式说明：https://www.7miyu.com/#/articles/64",
+        "您的访问秘钥已过期，请重新获取。获取方式说明：https://www.7miyu.com/#/articles/67",
       );
       return;
     }
